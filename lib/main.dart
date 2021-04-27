@@ -152,6 +152,7 @@ class MyWidget extends StatelessWidget{
         ),
         ElevatedButton(
           child:Text('5120184961李正齐'),
+          style: ButtonStyle( backgroundColor: MaterialStateProperty.all(Colors.red)),
           onPressed: (){Navigator.push(context,MaterialPageRoute(builder: (context)=>login_02()));
           },
         ),
