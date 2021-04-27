@@ -12,6 +12,7 @@ class login_02State extends State<login_02>{
     return Scaffold(
       appBar: AppBar(
         title: Text('用户登录界面'),
+        backgroundColor: Colors.blue,
       ),
       body: Column(
         children:<Widget>[
@@ -38,7 +39,7 @@ class login_02State extends State<login_02>{
           ElevatedButton(
             onPressed: _login,
             child: Text('登录'),
-          ),
+            style: ButtonStyle( backgroundColor: MaterialStateProperty.all(Colors.red)), ),
         ],
       ),
     );
