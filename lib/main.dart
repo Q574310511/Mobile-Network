@@ -115,6 +115,7 @@
 //
 
 import 'package:flutter/material.dart';
+import 'package:flutterapp/5120184727/login_01.dart';
 void main()
 {
   runApp(MyApp());
@@ -143,9 +144,11 @@ class MyWidget extends StatelessWidget{
       child:Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
-        Icon(Icons.opacity),
-        Icon(Icons.settings),
-        Icon(Icons.ondemand_video),
+        ElevatedButton(
+          child:Text('5120184727李万晖'),
+          onPressed: (){Navigator.push(context,MaterialPageRoute(builder: (context)=>login_01()));
+          },
+        )
       ],
     ));
   }
