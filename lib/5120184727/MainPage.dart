@@ -37,21 +37,22 @@ import 'package:flutterapp/5120184727/Personal.dart';
   }
 }*/
 
-class BottomNavigationWidget extends StatefulWidget {
+  class NewsPage extends StatefulWidget {
   @override
   State<StatefulWidget> createState() => BottomNavigationWidgetState();
-}
-class BottomNavigationWidgetState extends State<BottomNavigationWidget> {
+  }
+
+  class BottomNavigationWidgetState extends State<NewsPage> {
   final _bottomNavigationColor = Colors.blue;
   int _currentIndex = 0;
   List<Widget> list = List();
 
   @override
   void initState() {
-      list
-        ..add(Home())
-        ..add(Personal());
-    super.initState();
+  list
+  ..add(Home())
+  ..add(Personal());
+  super.initState();
   }
 
   @override

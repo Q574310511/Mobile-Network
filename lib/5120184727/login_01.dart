@@ -80,7 +80,7 @@ class login_01State extends State<login_01>{
             title: Text('成功'),
           ));*/
       Navigator.push(context, MaterialPageRoute(builder: (context) {
-        return BottomNavigationWidget();
+          return NewsPage();
       }));
       phoneController.clear();
       passController.clear();

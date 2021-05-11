@@ -9,7 +9,12 @@ class PersonalState extends State<Personal> {
   @override
   Widget build(BuildContext context) {
     return Center(
-        child:Text('我的'),
+        child:Text('个人详情',
+          style: new TextStyle(
+              fontSize:25.0
+          ),
+        ),
+
     );
   }
 }
