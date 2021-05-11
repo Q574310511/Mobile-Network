@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:flutterapp/5120184727/MainPage.dart';
 class login_01 extends StatefulWidget{
   @override
   State<StatefulWidget> createState() => login_01State();
@@ -9,7 +11,7 @@ class login_01State extends State<login_01>{
 
   @override
   Widget build(BuildContext context){
-    return Scaffold(
+      return Scaffold(
       appBar: AppBar(
         title: Text('用户登录界面'),
         backgroundColor: Colors.green,
@@ -27,6 +29,8 @@ class login_01State extends State<login_01>{
               labelText: '账号',
             ),
             autofocus: false,
+            inputFormatters: [FilteringTextInputFormatter.digitsOnly,//只允许输入数字
+              LengthLimitingTextInputFormatter(11)],
           ),
           TextField(
               controller: passController,
@@ -37,7 +41,13 @@ class login_01State extends State<login_01>{
                 icon: Icon(Icons.lock),
                 labelText: '请输入密码',
               ),
+              inputFormatters: [
+                FilteringTextInputFormatter.allow(
+                    RegExp("[^\u4e00-\u9fa5]")),
+                LengthLimitingTextInputFormatter(16),
+              ],
               obscureText: true),
+
           ElevatedButton(
             style: ButtonStyle(
               backgroundColor: MaterialStateProperty.all(Colors.green),
@@ -55,7 +65,7 @@ class login_01State extends State<login_01>{
       showDialog(
           context: context,
           builder: (context) => AlertDialog(
-            title: Text('手机号码格式不对'),
+            title: Text('用户名错误'),
           ));
     } else if (passController.text.length == 0) {
       showDialog(
@@ -64,20 +74,24 @@ class login_01State extends State<login_01>{
             title: Text('请填写密码'),
           ));
     } else {
-      showDialog(
+      /*showDialog(
           context: context,
           builder: (context) => AlertDialog(
-            title: Text('登录成功'),
-          ));
+            title: Text('成功'),
+          ));*/
+      Navigator.push(context, MaterialPageRoute(builder: (context) {
+        return BottomNavigationWidget();
+      }));
       phoneController.clear();
+      passController.clear();
     }
   }
 
   void onTextClear() {
-    setState(() {
-      phoneController.clear();
-      passController.clear();
-    });
+      setState(() {
+        phoneController.clear();
+        passController.clear();
+      });
   }
 }
 
