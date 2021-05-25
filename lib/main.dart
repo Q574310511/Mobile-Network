@@ -118,26 +118,28 @@ import 'package:flutter/material.dart';
 import 'package:flutterapp/5120184727/login_01.dart';
 import 'package:flutterapp/5120184961/login_02.dart';
 import 'package:flutterapp/5120183177/login_03.dart';
+import 'package:http/http.dart' as http;
 void main()
 {
   runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget{
-    Widget build(BuildContext context){
-      return MaterialApp(
-        title:'实验1',
-        home:Scaffold(
-            appBar:AppBar(
-              title:Text('第三小组实验1'),
-            ),
-          body: MyWidget(),
+  Widget build(BuildContext context){
+    return MaterialApp(
+      title:'实验1',
+      debugShowCheckedModeBanner: false,
+      home:Scaffold(
+        appBar:AppBar(
+          title:Text('第三小组实验1'),
         ),
-        theme: ThemeData(
+        body: MyWidget(),
+      ),
+      theme: ThemeData(
           primarySwatch: Colors.yellow
-        ),
-      );
-    }
+      ),
+    );
+  }
 }
 
 class MyWidget extends StatelessWidget{
