@@ -93,68 +93,68 @@ class HomeState extends State<Home> {
                   ]),
             ),
             body:
-
-            new TabBarView(
-              children: [
-                RefreshIndicator(
-                  onRefresh: _handleRefresh,
-                  child:ListView.builder(
-                    itemCount: _datas.length,
-                    itemBuilder: (BuildContext context,int index){
-                      return Card(
-                        color:Colors.grey[250],
-                        elevation: 5.0,
-                        child:Builder(
-                            builder: (context)=>InkWell(
-                              child:new Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Image.network(_datas[index].picUrl as String, fit: BoxFit.fitWidth,),
-                                  Padding(
-                                    padding: const EdgeInsets.all(10.0),
-                                    child:Text(
-                                      _datas[index].title.toString(),
-                                      style: TextStyle(
-                                        fontSize: 16.0,
-                                        fontWeight: FontWeight.bold,
+              new TabBarView(
+                children: [
+                  RefreshIndicator(
+                    onRefresh: _handleRefresh,
+                    child:ListView.builder(
+                      itemCount: _datas.length,
+                      itemBuilder: (BuildContext context,int index){
+                        return Card(
+                          color:Colors.grey[250],
+                          elevation: 5.0,
+                          child:Builder(
+                              builder: (context)=>InkWell(
+                                child:new Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Image.network(_datas[index].picUrl as String, fit: BoxFit.fitWidth,),
+                                    Padding(
+                                      padding: const EdgeInsets.all(10.0),
+                                      child:Text(
+                                        _datas[index].title.toString(),
+                                        style: TextStyle(
+                                          fontSize: 16.0,
+                                          fontWeight: FontWeight.bold,
+                                        ),
                                       ),
                                     ),
-                                  ),
-                                  Padding(
-                                    padding:_datas[index].description.toString().isEmpty
-                                        ? const EdgeInsets.all(0.0)
-                                        : const EdgeInsets.only(
-                                        left: 10.0,right: 10.0,bottom: 10.0),
-                                    child: Text(
-                                      _datas[index].description as String,
-                                      style: TextStyle(
-                                        fontSize: 12.0,
+                                    Padding(
+                                      padding:_datas[index].description.toString().isEmpty
+                                          ? const EdgeInsets.all(0.0)
+                                          : const EdgeInsets.only(
+                                          left: 10.0,right: 10.0,bottom: 10.0),
+                                      child: Text(
+                                        _datas[index].description as String,
+                                        style: TextStyle(
+                                          fontSize: 12.0,
+                                        ),
                                       ),
                                     ),
-                                  ),
-                                  Padding(
-                                    padding: const EdgeInsets.only(left: 10.0,right: 10.0),
-                                    child: Text(
-                                      '时间:${_datas[index].ctime}',
-                                      style: TextStyle(
-                                        fontSize: 12.0,
+                                    Padding(
+                                      padding: const EdgeInsets.only(left: 10.0,right: 10.0),
+                                      child: Text(
+                                        '时间:${_datas[index].ctime}',
+                                        style: TextStyle(
+                                          fontSize: 12.0,
+                                        ),
                                       ),
                                     ),
-                                  ),
-                                ],
-                              ),
-                              onTap:()=>Navigator.of(context).push(MaterialPageRoute(
-                                  builder: (context) =>NewsDetail(
-                                    url: _datas[index].url.toString(),
-                                    title: _datas[index].title.toString(),
-                                  ))),
-                            )),
-                      );
-                    },
+                                  ],
+                                ),
+                                onTap:()=>Navigator.of(context).push(MaterialPageRoute(
+                                    builder: (context) =>NewsDetail(
+                                      url: _datas[index].url.toString(),
+                                      title: _datas[index].title.toString(),
+                                    ))),
+                              )),
+                        );
+                      },
+                    ),
                   ),
-                ),
-                Acg(),
-              ],),
+
+                  Acg(),
+                ],),
         ),
     );
 
